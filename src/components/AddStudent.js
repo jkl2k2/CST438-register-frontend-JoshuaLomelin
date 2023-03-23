@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import Cookies from 'js-cookie';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import { Link } from "react-router-dom";
 import Button from '@mui/material/Button';
 
@@ -24,7 +23,6 @@ export default class AddStudent extends Component {
     };
 
     handleChange = (event) => {
-        console.log(this.state);
         this.setState(() => {
             return {
                 [event.target.name]: event.target.value
@@ -57,16 +55,21 @@ export default class AddStudent extends Component {
     render() {
         return (
             <div>
-                <h2>Add a new student</h2>
-                <form className="addForm">
-
-                    <input
-                        name="name"
-                        type="text"
-                        placeholder="Student Full Name"
-                        onChange={this.handleChange}
-                        value={this.name}
-                    />
+                <h1>Register a new student</h1>
+                <form>
+                    <div style={
+                        {
+                            margin: 20
+                        }
+                    }>
+                        <input
+                            name="name"
+                            type="text"
+                            placeholder="Student Full Name"
+                            onChange={this.handleChange}
+                            value={this.name}
+                        />
+                    </div>
 
                     <input
                         name="email"
@@ -75,7 +78,6 @@ export default class AddStudent extends Component {
                         onChange={this.handleChange}
                         value={this.email}
                     />
-
                 </form>
 
                 <div style={
@@ -83,11 +85,17 @@ export default class AddStudent extends Component {
                         marginTop: 20
                     }
                 }>
-                    <Button variant="outlined" component={Link} to={{ pathname: '/' }} >Back</Button>
                     <Button variant="outlined" onClick={this.onSubmit}>Add Student</Button>
                 </div>
 
-            </div>
+                <div style={
+                    {
+                        marginTop: 20
+                    }
+                }>
+                    <Button variant="outlined" component={Link} to={{ pathname: '/' }} >Back</Button>
+                </div>
+            </div >
         )
     }
 }
