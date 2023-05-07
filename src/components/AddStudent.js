@@ -85,7 +85,7 @@ export default class AddStudent extends Component {
                         marginTop: 20
                     }
                 }>
-                    <Button variant="outlined" onClick={this.onSubmit}>Add Student</Button>
+                    <Button id={"add"} variant="outlined" onClick={this.onSubmit}>Add Student</Button>
                 </div>
 
                 <div style={
